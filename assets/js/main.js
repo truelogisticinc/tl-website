@@ -73,4 +73,42 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
+
+
+    // ------------------Counter animation for stats section about us--------------------
+    function animateCounter(element, target, duration = 2000) {
+        let start = 0;
+        const increment = target / (duration / 16);
+        const timer = setInterval(() => {
+            start += increment;
+            if (start >= target) {
+                element.textContent = target + (target === 24 ? '/7' : '+');
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start) + (target === 24 ? '/7' : '+');
+            }
+        }, 16);
+    }
+
+    // Animate stats when they come into view
+    const statsObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumbers = entry.target.querySelectorAll('.stat-number');
+                statNumbers.forEach((stat, index) => {
+                    const targets = [15, 150, 24];
+                    setTimeout(() => {
+                        animateCounter(stat, targets[index]);
+                    }, index * 200);
+                });
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    });
+
+    const statsContainer = document.querySelector('.stats-container');
+    if (statsContainer) {
+        statsObserver.observe(statsContainer);
+    }
+    // ------------------/Counter animation for stats section About us--------------------
 });
