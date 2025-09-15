@@ -53,4 +53,24 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.product-card').forEach(card => {
         observer.observe(card);
     });
+
+    // Back to Top functionality
+    const backToTop = document.getElementById('backToTop');
+    
+    // Show/hide back to top button
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+    
+    // Smooth scroll to top
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 });
