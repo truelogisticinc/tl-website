@@ -36,6 +36,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Enhanced hover effects for service cards
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-15px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
     // Add loading animation when scrolling to section
     const observerOptions = {
         threshold: 0.1,
@@ -53,6 +64,16 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.product-card').forEach(card => {
         observer.observe(card);
     });
+
+    // Parallax effect for background elements on scroll in "What Makes Us Different" section
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.1;
+        
+        const section = document.querySelector('.what-makes-us-section');
+        if (section) {
+            section.style.transform = `translateY(${rate}px)`;
+        }
 
     // Back to Top functionality
     const backToTop = document.getElementById('backToTop');

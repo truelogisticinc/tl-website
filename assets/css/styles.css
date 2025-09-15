@@ -85,6 +85,195 @@ nav a img {
     font-weight: bold;
 }
 
+
+/* ===== WHAT MAKES US DIFFERENT SECTION ===== */
+.what-makes-us-section {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 50%, #f0f8ff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background elements */
+.what-makes-us-section::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 50%;
+    height: 150%;
+    background: linear-gradient(45deg, rgba(0, 102, 204, 0.03), rgba(102, 204, 255, 0.05));
+    border-radius: 50%;
+    z-index: 0;
+    animation: float 20s infinite ease-in-out;
+}
+
+.what-makes-us-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -15%;
+    width: 40%;
+    height: 120%;
+    background: linear-gradient(135deg, rgba(0, 153, 255, 0.04), rgba(0, 102, 204, 0.02));
+    border-radius: 50%;
+    z-index: 0;
+    animation: float 25s infinite ease-in-out reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-40px) rotate(5deg); }
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 7rem 2rem;
+    height: 100%;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 102, 204, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.05), rgba(102, 204, 255, 0.03));
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.service-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(0, 102, 204, 0.15);
+    border-color: rgba(0, 102, 204, 0.2);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #0066cc, #0099ff);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.2);
+}
+
+.service-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.service-icon::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #0066cc, #0099ff, #66ccff);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-icon::after {
+    opacity: 0.7;
+}
+
+.service-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1a365d;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.service-description {
+    color: #4a5568;
+    line-height: 1.7;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* Special styling for different service types */
+.service-card:nth-child(1) .service-icon {
+    background: linear-gradient(135deg, #10b981, #34d399);
+}
+
+.service-card:nth-child(2) .service-icon {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.service-card:nth-child(3) .service-icon {
+    background: linear-gradient(135deg, #0066cc, #0099ff);
+}
+
+.service-card:nth-child(4) .service-icon {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+}
+
+.service-card:nth-child(5) .service-icon {
+    background: linear-gradient(135deg, #ef4444, #f87171);
+}
+
+.service-card:nth-child(6) .service-icon {
+    background: linear-gradient(135deg, #06b6d4, #22d3ee);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .what-makes-us-section {
+        padding: 80px 0;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .service-card {
+        padding: 2.5rem 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .service-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .service-icon i {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .service-card {
+        padding: 2rem 1.2rem;
+    }
+}
+
+
 /* What makes us section */
 #what-makes {
     background-color: var(--color-primary);
